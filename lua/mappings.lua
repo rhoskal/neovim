@@ -26,3 +26,6 @@ map("n", "<C-Right>", ":vertical resize +2<CR>")
 -- Reselect visual selection after indenting
 map("v", "<", "<gv")
 map("v", ">", ">gv")
+
+-- Allow "go-to-file" to open non-existent files
+map("", "gf", ":edit <cfile><CR>")
