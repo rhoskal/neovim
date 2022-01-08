@@ -16,11 +16,6 @@ if not status_ok then
 end
 
 packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
   profile = {
     enable = true, -- enable profiling via :PackerCompile profile=true
     threshold = 0, -- the amount in ms that a plugins load time must be over for it to be included in the profile
