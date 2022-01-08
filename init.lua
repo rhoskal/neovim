@@ -1,3 +1,4 @@
-require "options"
-require "mappings"
---require "colors"
+require("options")
+require("mappings")
+require("autocmd")
+require("pkgmgr")
