@@ -1,6 +1,7 @@
 # IDE's and text editors
 .nova
 .vscode
+.idea
 
 # System files
 .DS_Store
