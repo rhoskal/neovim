@@ -36,6 +36,11 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
 
+  use {
+    "editorconfig/editorconfig-vim",
+    config = [[ require("config/editorconfig") ]],
+  }
+
   if packer_bootstrap then
     require("packer").sync()
   end

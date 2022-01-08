@@ -1,0 +1,2 @@
+-- Plugin: editorconfig-vim
+-- https://github.com/editorconfig/editorconfig-vim
