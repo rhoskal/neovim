@@ -32,13 +32,18 @@ return packer.startup(function(use)
 
   use {
     "nvim-treesitter/nvim-treesitter",
-    config = [[ require("config/treesitter") ]],
+    config = function()
+      require("config/treesitter")
+    end,
     run = ":TSUpdate",
   }
 
   use {
     "editorconfig/editorconfig-vim",
-    config = [[ require("config/editorconfig") ]],
+    config = function()
+      require("config/editorconfig")
+    end,
+  }
   }
 
   if packer_bootstrap then
