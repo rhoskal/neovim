@@ -29,3 +29,11 @@ map("v", ">", ">gv")
 
 -- Allow "go-to-file" to open non-existent files
 map("", "gf", ":edit <cfile><CR>")
+
+-- Easy buffer switching
+map("v", "<TAB>", ":bnext<CR>")
+map("v", "<S-TAB>", ":bprevious<CR>")
+
+-- Move selected line / block of text in visual mode
+map("x", "K", ":move '<-2<CR>gv-gv")
+map("x", "J", ":move '>+1<CR>gv-gv")
