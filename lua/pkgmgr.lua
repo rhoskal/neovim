@@ -39,6 +39,12 @@ return packer.startup(function(use)
       require("config/editorconfig")
     end,
   }
+
+  use {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("config/lspconfig")
+    end,
   }
 
   if packer_bootstrap then
