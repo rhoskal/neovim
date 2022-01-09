@@ -10,6 +10,7 @@ local options = {
   ruler          = false,          -- no need to show line, col numbers of cursor position
   scrolloff      = 5,              -- keeping context is important
   shiftwidth     = 2,              -- number of spaces inserted for each indentation
+  showmode       = false,          --
   signcolumn     = "yes",          -- always display "gutter" to prevent shifting
   smartcase      = true,           -- be case sensitive during searches
   smartindent    = true,           --

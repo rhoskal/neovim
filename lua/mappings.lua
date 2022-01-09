@@ -31,9 +31,12 @@ keymap("v", ">", ">gv")
 keymap("", "gf", ":edit <cfile><CR>")
 
 -- Easy buffer switching
-keymap("v", "<TAB>", ":bnext<CR>")
-keymap("v", "<S-TAB>", ":bprevious<CR>")
+keymap("n", "<space>bn", ":bnext<CR>")
+keymap("n", "<space>bp", ":bprevious<CR>")
 
 -- Move selected line / block of text in visual mode
 keymap("x", "K", ":move '<-2<CR>gv-gv")
 keymap("x", "J", ":move '>+1<CR>gv-gv")
+
+-- close all windows and exit from neovim
+keymap("n", "<space>q", ":qa!<CR>")
