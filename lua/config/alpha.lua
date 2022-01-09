@@ -35,10 +35,11 @@ end
 dashboard.section.footer.opts.hl = "Constant"
 
 dashboard.section.buttons.val = {
-  button("SPC u", "  Update plugins", ":PackerSync<CR>"),
+  button("SPC u", "  Update plugins", ":PackerSync<CR>"),
   button("SPC f p", "  Settings", ":e $MYVIMRC<CR>"),
   button("SPC f f", "  Find file"),
-  button("SPC f r", "祥 Recent", ":Telescope oldfiles<CR>")
+  button("SPC f r", "祥 Recent", ":Telescope oldfiles<CR>"),
+  button("SPC q", "  Quit"),
 }
 
 alpha.setup(dashboard.opts)
