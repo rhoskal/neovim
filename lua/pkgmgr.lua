@@ -57,6 +57,20 @@ return packer.startup(function(use)
     },
   }
 
+  use {
+    "EdenEast/nightfox.nvim",
+    -- config = function()
+    --   require("config/nightfox")
+    -- end,
+  }
+
+  use {
+    "folke/tokyonight.nvim",
+    config = function()
+      require("config/tokyonight")
+    end,
+  }
+
   if packer_bootstrap then
     require("packer").sync()
   end
