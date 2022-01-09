@@ -37,3 +37,7 @@ map("v", "<S-TAB>", ":bprevious<CR>")
 -- Move selected line / block of text in visual mode
 map("x", "K", ":move '<-2<CR>gv-gv")
 map("x", "J", ":move '>+1<CR>gv-gv")
+
+-- Telescope
+map("n", "<leader>ff", ":Telescope find_files<CR>")
+map("n", "<leader>fg", ":Telescope live_grep<CR>")
