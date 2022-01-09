@@ -82,6 +82,17 @@ return packer.startup(function(use)
     }
   }
 
+  use {
+    "kyazdani42/nvim-tree.lua",
+    config = function()
+      require("config/explorer")
+    end,
+    requires = {
+      "kyazdani42/nvim-web-devicons",
+      opt = true,
+    },
+  }
+
   if packer_bootstrap then
     require("packer").sync()
   end
