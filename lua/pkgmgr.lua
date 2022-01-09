@@ -97,14 +97,25 @@ return packer.startup(function(use)
     "numToStr/Comment.nvim",
     config = function()
       require("config/comments")
-    end
+    end,
   }
 
   use {
     "windwp/nvim-autopairs",
     config = function()
       require("config/autopairs")
-    end
+    end,
+  }
+
+  use {
+    "goolord/alpha-nvim",
+    config = function()
+      require("config/alpha")
+    end,
+    requires = {
+      "kyazdani42/nvim-web-devicons",
+      opt = true,
+    },
   }
 
   if packer_bootstrap then

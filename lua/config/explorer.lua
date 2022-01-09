@@ -19,5 +19,4 @@ explorer.setup {
   },
 }
 
-keymap("n", "<leader>t", ":NvimTreeToggle<CR>")
-keymap("n", "<leader>tr", ":NvimTreeRefresh<CR>")
+keymap("n", "<leader>fd", ":NvimTreeToggle<CR>")

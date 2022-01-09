@@ -25,4 +25,4 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.opt.iskeyword:append({"-"})   -- treat dash separated words as a word
+vim.opt.iskeyword:append({"-"})    -- treat dash separated words as a word

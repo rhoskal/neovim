@@ -116,7 +116,7 @@ nvim_lsp.sumneko_lua.setup {
       },
       diagnostics = {
         enable = true,
-        globals = { "vim", "describe", "use" },
+        globals = { "vim", "describe", "use", "packer_plugins" },
         disable = { "lowercase-global" },
       },
       workspace = {
