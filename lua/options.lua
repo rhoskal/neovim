@@ -2,7 +2,6 @@ local temp_dir = "~/.tmp,/private/tmp//"
 local options = {
   backupdir      = temp_dir,       -- store backup files here instead of next to file
   clipboard      = "unnamedplus",  -- copy paste between vim and everything else
-  columns        = 100,            -- number of chars at which to show the wrap guide (max line length)
   directory      = temp_dir,       -- store swap files here instead of next to file
   expandtab      = true,           -- convert tabs to spaces
   mouse          = "a",            -- enable mouse in all modes
