@@ -79,7 +79,7 @@ return packer.startup(function(use)
     requires = {
       "kyazdani42/nvim-web-devicons",
       opt = true,
-    }
+    },
   }
 
   use {
@@ -91,6 +91,13 @@ return packer.startup(function(use)
       "kyazdani42/nvim-web-devicons",
       opt = true,
     },
+  }
+
+  use {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("config/comments")
+    end
   }
 
   if packer_bootstrap then
