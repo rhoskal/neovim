@@ -23,7 +23,7 @@ packer.init {
 }
 
 return packer.startup(function(use)
-  use 'wbthomason/packer.nvim'
+  use "wbthomason/packer.nvim"
 
   use {
     "nvim-treesitter/nvim-treesitter",
@@ -97,6 +97,13 @@ return packer.startup(function(use)
     "numToStr/Comment.nvim",
     config = function()
       require("config/comments")
+    end
+  }
+
+  use {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("config/autopairs")
     end
   }
 
