@@ -71,6 +71,17 @@ return packer.startup(function(use)
     end,
   }
 
+  use {
+    "nvim-lualine/lualine.nvim",
+    config = function()
+      require("config/lualine")
+    end,
+    requires = {
+      "kyazdani42/nvim-web-devicons",
+      opt = true,
+    }
+  }
+
   if packer_bootstrap then
     require("packer").sync()
   end
