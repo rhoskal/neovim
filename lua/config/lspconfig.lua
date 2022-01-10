@@ -68,6 +68,17 @@ nvim_lsp.elmls.setup {
   on_attach = on_attach,
 }
 
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#hls
+nvim_lsp.hls.setup {
+  flags = flags,
+  on_attach = on_attach,
+  settings = {
+    haskell = {
+      formattingProvider = "brittany",
+    },
+  },
+}
+
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jsonls
 nvim_lsp.jsonls.setup {
   flags = flags,
