@@ -128,6 +128,13 @@ return packer.startup(function(use)
     },
   }
 
+  use {
+    "hrsh7th/nvim-cmp",
+    config = function()
+      require("config/completions")
+    end,
+  }
+
   if packer_bootstrap then
     require("packer").sync()
   end
