@@ -74,10 +74,3 @@ gitsigns.setup {
   },
 }
 
-keymap("n", "<space>gb", "<cmd>Gitsigns blame_line<CR>")
-keymap("n", "<space>gs", "<cmd>Gitsigns stage_hunk<CR>")
-keymap("n", "<space>gS", "<cmd>Gitsigns stage_buffer<CR>")
-keymap("n", "<space>g]", "<cmd>Gitsigns next_hunk<CR>")
-keymap("n", "<space>g[", "<cmd>Gitsigns prev_hunk<CR>")
-keymap("n", "<space>gu", "<cmd>Gitsigns undo_stage_hunk<CR>")
-

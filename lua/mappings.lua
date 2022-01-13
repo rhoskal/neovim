@@ -30,10 +30,6 @@ keymap("v", ">", ">gv")
 -- Allow "go-to-file" to open non-existent files
 keymap("", "gf", ":edit <cfile><CR>")
 
--- Easy buffer switching
-keymap("n", "<space>bn", ":bnext<CR>")
-keymap("n", "<space>bp", ":bprevious<CR>")
-
 -- Move selected line / block of text in visual mode
 keymap("x", "K", ":move '<-2<CR>gv-gv")
 keymap("x", "J", ":move '>+1<CR>gv-gv")
