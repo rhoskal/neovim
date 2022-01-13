@@ -1,13 +1,18 @@
 -- Plugin: nvim-lspconfig
 -- https://github.com/neovim/nvim-lspconfig
 
-local status_ok, nvim_lsp = pcall(require, "lspconfig")
-if not status_ok then
+local status_lsp_ok, nvim_lsp = pcall(require, "lspconfig")
+if not status_lsp_ok then
   return
 end
 
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not status_cmp_ok then
+  return
+end
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 local on_attach = function(_, bufnr)
   local function buf_set_option(...)
@@ -36,18 +41,21 @@ nvim_lsp.dockerls.setup {
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#elixirls
 nvim_lsp.elixirls.setup {
+  capabilities = capabilities,
   flags = flags,
   on_attach = on_attach,
 }
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#elmls
 nvim_lsp.elmls.setup {
+  capabilities = capabilities,
   flags = flags,
   on_attach = on_attach,
 }
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#hls
 nvim_lsp.hls.setup {
+  capabilities = capabilities,
   flags = flags,
   on_attach = on_attach,
   settings = {
@@ -89,6 +97,7 @@ nvim_lsp.jsonls.setup {
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
 nvim_lsp.sumneko_lua.setup {
+  capabilities = capabilities,
   flags = flags,
   on_attach = on_attach,
   settings = {
@@ -126,12 +135,14 @@ nvim_lsp.sumneko_lua.setup {
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tailwindcss
 nvim_lsp.tailwindcss.setup {
+  capabilities = capabilities,
   flags = flags,
   on_attach = on_attach,
 }
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
 nvim_lsp.tsserver.setup {
+  capabilities = capabilities,
   flags = flags,
   on_attach = on_attach,
 }

@@ -136,6 +136,16 @@ return packer.startup(function(use)
   }
 
   use {
+    "hrsh7th/cmp-path",
+    after = "nvim-cmp",
+  }
+
+  use {
+    "hrsh7th/cmp-nvim-lsp",
+    after = "nvim-cmp",
+  }
+
+  use {
     "folke/which-key.nvim",
     config = function()
       require("config/which-key")
