@@ -142,6 +142,14 @@ return packer.startup(function(use)
     end,
   }
 
+  use {
+    "phaazon/hop.nvim",
+    branch = "v1",
+    config = function()
+      require("config/hop")
+    end,
+  }
+
   if packer_bootstrap then
     require("packer").sync()
   end
