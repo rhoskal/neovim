@@ -7,6 +7,9 @@ if not status_ok then
 end
 
 completions.setup({
+  documentation = {
+    border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"},
+  },
   mapping = {
     ["<CR>"] = completions.mapping.confirm {
       behavior = completions.ConfirmBehavior.Replace,
@@ -28,6 +31,7 @@ completions.setup({
     end,
     ["<C-d>"] = completions.mapping.scroll_docs(-4),
     ["<C-f>"] = completions.mapping.scroll_docs(4),
+    ["<C-e>"] = completions.mapping.close(),
   },
   sources = {
     { name = "nvim_lsp" },
