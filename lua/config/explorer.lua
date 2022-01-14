@@ -14,18 +14,12 @@ vim.g.vim_tree_special_files = {
 }
 
 explorer.setup {
-  auto_close = true,
   filters = {
     dotfiles = true,
   },
-  git = {
-    enable = true,
-    ignore = true,
+  ignore_ft_on_setup = {
+    "alpha",
   },
-  trash = {
-    cmd = "trash",
-    require_confirm = true,
-  }
 }
 
 keymap("n", "<leader>fd", ":NvimTreeToggle<CR>")
