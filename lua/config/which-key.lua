@@ -18,19 +18,23 @@ which_key.register({
   b = {
     name = "buffer",
     d = {
-      "<cmd>bdelete<CR>",
+      cmd("Bdelete"),
+      "Kill buffer but keep window layout",
+    },
+    D = {
+      cmd("bdelete"),
       "Kill buffer",
     },
     l = {
-      "<cmd>Telescope buffers<CR>",
+      cmd("Telescope buffers"),
       "List open buffers",
     },
     n = {
-      "<cmd>bnext<CR>",
+      cmd("bnext"),
       "Next buffer",
     },
     p = {
-      "<cmd>bprevious<CR>",
+      cmd("bprevious"),
       "Previous buffer",
     },
   },
@@ -145,17 +149,17 @@ which_key.register({
       "<C-w>c<CR>",
       "Close current window",
     },
-    m = {
-      "",
-      "Maximize current window",
-    },
     O = {
       "<C-w>o<CR>",
       "Close all other windows",
     },
+    r = {
+      "<C-W>R<CR>",
+      "Rotate horizontal windows",
+    },
     R = {
       "<C-w>R<CR>",
-      "Rotate windows",
+      "Rotate vertical windows",
     },
     s = {
       cmd("split"),
