@@ -17,12 +17,6 @@ keymap("n", "<C-j>", "<C-w>j")
 keymap("n", "<C-k>", "<C-w>k")
 keymap("n", "<C-l>", "<C-w>l")
 
--- Resize windows with arrow keys
-keymap("n", "<C-Up>", ":resize +2<CR>")
-keymap("n", "<C-Down>", ":resize -2<CR>")
-keymap("n", "<C-Left>", ":vertical resize +2<CR>")
-keymap("n", "<C-Right>", ":vertical resize -2<CR>")
-
 -- Reselect visual selection after indenting
 keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
