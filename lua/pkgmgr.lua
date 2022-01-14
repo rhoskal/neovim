@@ -133,15 +133,13 @@ return packer.startup(function(use)
     config = function()
       require("config/completions")
     end,
+    requires = {
+      "hrsh7th/cmp-nvim-lsp",
+    }
   }
 
   use {
     "hrsh7th/cmp-path",
-    after = "nvim-cmp",
-  }
-
-  use {
-    "hrsh7th/cmp-nvim-lsp",
     after = "nvim-cmp",
   }
 
