@@ -11,8 +11,11 @@ if not status_cmp_ok then
   return
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+-- Set up completion using nvim_cmp with LSP source
+local capabilities = cmp_nvim_lsp.update_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
+local protocol = require("vim.lsp.protocol")
 
 local on_attach = function(_, bufnr)
   local function buf_set_option(...)
@@ -21,6 +24,34 @@ local on_attach = function(_, bufnr)
 
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+
+  protocol.CompletionItemKind = {
+    "", -- Text
+    "", -- Method
+    "", -- Function
+    "", -- Constructor
+    "", -- Field
+    "", -- Variable
+    "", -- Class
+    "ﰮ", -- Interface
+    "", -- Module
+    "", -- Property
+    "", -- Unit
+    "", -- Value
+    "", -- Enum
+    "", -- Keyword
+    "﬌", -- Snippet
+    "", -- Color
+    "", -- File
+    "", -- Reference
+    "", -- Folder
+    "", -- EnumMember
+    "", -- Constant
+    "", -- Struct
+    "", -- Event
+    "ﬦ", -- Operator
+    "", -- TypeParameter
+  }
 end
 
 local flags = {
@@ -84,11 +115,19 @@ nvim_lsp.jsonls.setup {
           url = "http://json.schemastore.org/eslintrc",
         },
         {
-          description = "Package config",
+          description = "NPM config",
           fileMatch = {
             "package.json",
           },
           url = "https://json.schemastore.org/package",
+        },
+        {
+          description = "TypeScript compiler configuration file",
+          fileMatch = {
+            "tsconfig.json",
+            "tsconfig.*.json",
+          },
+          url = "https://json.schemastore.org/tsconfig.json",
         },
       },
     },
@@ -114,7 +153,12 @@ nvim_lsp.sumneko_lua.setup {
       },
       diagnostics = {
         enable = true,
-        globals = { "vim", "describe", "use", "packer_plugins" },
+        globals = {
+          "vim",
+          "describe",
+          "use",
+          "packer_plugins",
+        },
         disable = { "lowercase-global" },
       },
       workspace = {
