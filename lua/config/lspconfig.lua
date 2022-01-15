@@ -104,6 +104,12 @@ nvim_lsp.hls.setup {
   },
 }
 
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
+nvim_lsp.html.setup {
+  flags = flags,
+  on_attach = on_attach,
+}
+
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jsonls
 nvim_lsp.jsonls.setup {
   flags = flags,
