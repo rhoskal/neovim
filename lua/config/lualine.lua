@@ -6,6 +6,10 @@ if not status_ok then
   return
 end
 
+local function hide_in_small_windows()
+  return vim.fn.winwidth(0) > 50
+end
+
 lualine.setup {
   options = {
     theme = "tokyonight",
@@ -16,11 +20,17 @@ lualine.setup {
     },
   },
   sections = {
-    lualine_a = { "mode" },
+    lualine_a = {
+      {
+        "mode",
+        cond = hide_in_small_windows,
+      },
+    },
     lualine_b = { "filename" },
     lualine_c = {
       {
         "diagnostics",
+        cond = hide_in_small_windows,
         sources = { "nvim_diagnostic" },
         sections = {
           "error",
@@ -59,10 +69,16 @@ lualine.setup {
 
           return msg
         end,
+        cond = hide_in_small_windows,
         icon = " ",
       },
     },
-    lualine_y = { "branch" },
+    lualine_y = {
+      {
+        "branch",
+        cond = hide_in_small_windows,
+      },
+    },
     lualine_z = { "progress" },
   },
   inactive_sections = {
