@@ -10,9 +10,7 @@ local cmd = function(cmdline)
   return "<cmd>" .. cmdline .. "<CR>"
 end
 
-which_key.setup {
-
-}
+which_key.setup {}
 
 which_key.register({
   b = {
@@ -60,6 +58,10 @@ which_key.register({
     i = {
       cmd("lua vim.lsp.buf.implementation()"),
       "Find all implementations",
+    },
+    I = {
+      cmd("lua vim.diagnostic.open_float()"),
+      "Show diagnostic info",
     },
     K = {
       cmd("lua vim.lsp.buf.hover()"),
