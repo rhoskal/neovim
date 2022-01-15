@@ -2,12 +2,9 @@
 -- https://github.com/neovim/nvim-lspconfig
 
 local status_lsp_ok, nvim_lsp = pcall(require, "lspconfig")
-if not status_lsp_ok then
-  return
-end
-
 local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_cmp_ok then
+
+if not (status_lsp_ok or status_cmp_ok) then
   return
 end
 

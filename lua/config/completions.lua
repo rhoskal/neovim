@@ -1,8 +1,10 @@
 -- Plugin: nvim-cmp
 -- https://github.com/hrsh7th/nvim-cmp
 
-local status_ok, completions = pcall(require, "cmp")
-if not status_ok then
+local status_cmp_ok, cmp = pcall(require, "cmp")
+local status_snip_ok, luasnip = pcall(require, "luasnip")
+
+if not (status_cmp_ok or status_snip_ok) then
   return
 end
 
@@ -35,7 +37,13 @@ local kind_icons = {
   Variable = "",
 }
 
-completions.setup({
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+cmp.setup({
   documentation = {
     border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"},
   },
@@ -53,31 +61,48 @@ completions.setup({
     end
   },
   mapping = {
-    ["<CR>"] = completions.mapping.confirm {
-      behavior = completions.ConfirmBehavior.Replace,
+    ["<CR>"] = cmp.mapping.confirm {
       select = true,
     },
-    ["<Tab>"] = function(fallback)
-      if completions.visible() then
-        completions.select_next_item()
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
       else
         fallback()
       end
-    end,
-    ["<S-Tab>"] = function(fallback)
-      if completions.visible() then
-        completions.select_prev_item()
+    end, { "i", "s" }),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
-    end,
-    ["<C-d>"] = completions.mapping.scroll_docs(-4),
-    ["<C-f>"] = completions.mapping.scroll_docs(4),
-    ["<C-e>"] = completions.mapping.close(),
+    end, { "i", "s" }),
+    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-e>"] = cmp.mapping {
+      c = cmp.mapping.close(),
+      i = cmp.mapping.abort(),
+    },
   },
-  sources = {
-    { name = "nvim_lsp" }, -- must come first
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
+  sources = cmp.config.sources({
+    { name = "nvim_lsp" },
+    { name = "luasnip" },
+  }, {
     { name = "path" },
-  }
+  })
 })
 
+-- a better completion experience (from docs)
+vim.o.completeopt = "menu,menuone,noselect"
