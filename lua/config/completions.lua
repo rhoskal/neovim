@@ -6,9 +6,51 @@ if not status_ok then
   return
 end
 
+-- find more here: https://www.nerdfonts.com/cheat-sheet
+local kind_icons = {
+  Class = "ﴯ",
+  Color = "",
+  Constant = "",
+  Constructor = "",
+  Enum = "",
+  EnumMember = "",
+  Event = "",
+  Field = "",
+  File = "",
+  Folder = "",
+  Function = "",
+  Interface = "",
+  Keyword = "",
+  Method = "",
+  Module = "",
+  Operator = "",
+  Property = "ﰠ",
+  Reference = "",
+  Snippet = "",
+  Struct = "פּ",
+  Text = "",
+  TypeParameter = "",
+  Unit = "塞",
+  Value = "",
+  Variable = "",
+}
+
 completions.setup({
   documentation = {
     border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"},
+  },
+  formatting = {
+    format = function(entry, vim_item)
+      vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind] or "", vim_item.kind)
+      vim_item.menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[Snippet]",
+        path = "[Path]",
+      })[entry.source.name]
+
+      return vim_item
+    end
   },
   mapping = {
     ["<CR>"] = completions.mapping.confirm {

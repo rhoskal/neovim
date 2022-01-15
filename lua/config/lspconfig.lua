@@ -17,7 +17,9 @@ local capabilities = cmp_nvim_lsp.update_capabilities(
 )
 capabilities.textDocument.completion.completionItem.deprecatedSupport = true
 
-local protocol = require("vim.lsp.protocol")
+vim.diagnostic.config({
+  virtual_text = false,
+})
 
 local on_attach = function(_, bufnr)
   local function buf_set_option(...)
@@ -26,34 +28,6 @@ local on_attach = function(_, bufnr)
 
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-
-  protocol.CompletionItemKind = {
-    "", -- Text
-    "", -- Method
-    "", -- Function
-    "", -- Constructor
-    "", -- Field
-    "", -- Variable
-    "", -- Class
-    "ﰮ", -- Interface
-    "", -- Module
-    "", -- Property
-    "", -- Unit
-    "", -- Value
-    "", -- Enum
-    "", -- Keyword
-    "﬌", -- Snippet
-    "", -- Color
-    "", -- File
-    "", -- Reference
-    "", -- Folder
-    "", -- EnumMember
-    "", -- Constant
-    "", -- Struct
-    "", -- Event
-    "ﬦ", -- Operator
-    "", -- TypeParameter
-  }
 end
 
 local flags = {
