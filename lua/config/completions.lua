@@ -34,7 +34,7 @@ completions.setup({
     ["<C-e>"] = completions.mapping.close(),
   },
   sources = {
-    { name = "nvim_lsp" },
+    { name = "nvim_lsp" }, -- must come first
     { name = "path" },
   }
 })

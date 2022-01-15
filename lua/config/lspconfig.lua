@@ -66,6 +66,12 @@ nvim_lsp.bashls.setup {
   on_attach = on_attach,
 }
 
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#cssls
+nvim_lsp.cssls.setup {
+  flags = flags,
+  on_attach = on_attach,
+}
+
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#dockerls
 nvim_lsp.dockerls.setup {
   flags = flags,
