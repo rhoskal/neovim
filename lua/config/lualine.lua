@@ -26,6 +26,12 @@ lualine.setup {
           "error",
           "warn",
         },
+        symbols = {
+          error = " ",
+          warn = " ",
+          -- info = " ",
+          -- hint = " ",
+        },
         update_in_insert = false,
         always_visible = true,
       },
