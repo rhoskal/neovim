@@ -60,21 +60,29 @@ local flags = {
   debounce_text_changes = 150,
 }
 
+local handlers = {
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+}
+
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
 nvim_lsp.bashls.setup {
   flags = flags,
+  handlers = handlers,
   on_attach = on_attach,
 }
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#cssls
 nvim_lsp.cssls.setup {
   flags = flags,
+  handlers = handlers,
   on_attach = on_attach,
 }
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#dockerls
 nvim_lsp.dockerls.setup {
   flags = flags,
+  handlers = handlers,
   on_attach = on_attach,
 }
 
@@ -82,6 +90,7 @@ nvim_lsp.dockerls.setup {
 nvim_lsp.elixirls.setup {
   capabilities = capabilities,
   flags = flags,
+  handlers = handlers,
   on_attach = on_attach,
 }
 
@@ -89,6 +98,7 @@ nvim_lsp.elixirls.setup {
 nvim_lsp.elmls.setup {
   capabilities = capabilities,
   flags = flags,
+  handlers = handlers,
   on_attach = on_attach,
 }
 
@@ -96,6 +106,7 @@ nvim_lsp.elmls.setup {
 nvim_lsp.hls.setup {
   capabilities = capabilities,
   flags = flags,
+  handlers = handlers,
   on_attach = on_attach,
   settings = {
     haskell = {
@@ -107,12 +118,14 @@ nvim_lsp.hls.setup {
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
 nvim_lsp.html.setup {
   flags = flags,
+  handlers = handlers,
   on_attach = on_attach,
 }
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jsonls
 nvim_lsp.jsonls.setup {
   flags = flags,
+  handlers = handlers,
   on_attach = on_attach,
   settings = {
     json = {
@@ -152,6 +165,7 @@ nvim_lsp.jsonls.setup {
 nvim_lsp.sumneko_lua.setup {
   capabilities = capabilities,
   flags = flags,
+  handlers = handlers,
   on_attach = on_attach,
   settings = {
     Lua = {
@@ -195,6 +209,7 @@ nvim_lsp.sumneko_lua.setup {
 nvim_lsp.tailwindcss.setup {
   capabilities = capabilities,
   flags = flags,
+  handlers = handlers,
   on_attach = on_attach,
 }
 
@@ -202,12 +217,14 @@ nvim_lsp.tailwindcss.setup {
 nvim_lsp.tsserver.setup {
   capabilities = capabilities,
   flags = flags,
+  handlers = handlers,
   on_attach = on_attach,
 }
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#yamlls
 nvim_lsp.yamlls.setup {
   flags = flags,
+  handlers = handlers,
   on_attach = on_attach,
   settings = {
     yaml = {
