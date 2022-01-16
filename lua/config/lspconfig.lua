@@ -18,13 +18,19 @@ vim.diagnostic.config({
   virtual_text = false,
 })
 
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)
   end
 
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+
+  -- Avoid formatting conflicts with null-ls
+  if client.name == "tsserver" then
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+  end
 end
 
 local flags = {

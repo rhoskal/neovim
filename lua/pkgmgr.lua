@@ -141,6 +141,16 @@ return packer.startup(function(use)
   use "L3MON4D3/LuaSnip"
 
   use {
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      require("config/formatters")
+    end,
+    requires = {
+      "nvim-lua/plenary.nvim"
+    },
+  }
+
+  use {
     "folke/which-key.nvim",
     config = function()
       require("config/which-key")
