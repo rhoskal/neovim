@@ -15,6 +15,10 @@ which_key.setup {}
 which_key.register({
   b = {
     name = "buffer",
+    a = {
+      "<C-^><CR>",
+      "Edit alternate file",
+    },
     d = {
       cmd("Bdelete"),
       "Kill buffer but keep window layout",
