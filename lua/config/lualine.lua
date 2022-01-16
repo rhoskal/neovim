@@ -35,11 +35,13 @@ lualine.setup {
         sections = {
           "error",
           "warn",
+          "info",
+          -- "hint",
         },
         symbols = {
           error = " ",
           warn = " ",
-          -- info = " ",
+          info = " ",
           -- hint = " ",
         },
         update_in_insert = false,
@@ -49,25 +51,13 @@ lualine.setup {
     lualine_x = {
       {
         function()
-          local msg = "No Language Server"
-          local buf_file_type = vim.api.nvim_buf_get_option(0, "filetype")
           local clients = vim.lsp.get_active_clients()
 
           if next(clients) == nil then
-            return msg
+            return "No LSP's"
+          else
+            return "LSP's active"
           end
-
-          for _, client in ipairs(clients) do
-            local filetypes = client.config.filetypes
-
-            if filetypes and vim.fn.index(filetypes, buf_file_type) ~= -1 then
-              if client.name ~= "tailwindcss" then
-                return client.name
-              end
-            end
-          end
-
-          return msg
         end,
         cond = hide_in_small_windows,
         icon = " ",
@@ -87,7 +77,7 @@ lualine.setup {
     lualine_c = {},
     lualine_x = {},
     lualine_y = {},
-    lualine_z = { "location" },
+    lualine_z = { "progress" },
   },
   tabline = {},
   extensions = {},
