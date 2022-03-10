@@ -66,6 +66,7 @@ nvim_lsp.dockerls.setup {
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#elixirls
 nvim_lsp.elixirls.setup {
   capabilities = capabilities,
+  cmd = { "/Users/hansy/.elixir-ls/language_server.sh" },
   flags = flags,
   handlers = handlers,
   on_attach = on_attach,
