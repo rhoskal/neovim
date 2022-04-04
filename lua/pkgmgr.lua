@@ -57,19 +57,26 @@ return packer.startup(function(use)
     },
   }
 
-  use {
-    "EdenEast/nightfox.nvim",
-    -- config = function()
-    --   require("config/nightfox")
-    -- end,
-  }
+  -- use {
+  --   "ntk148v/vim-horizon",
+  --   config = function()
+  --     require("config/horizon")
+  --   end,
+  -- }
 
   use {
-    "folke/tokyonight.nvim",
+    "EdenEast/nightfox.nvim",
     config = function()
-      require("config/tokyonight")
+      require("config/nightfox")
     end,
   }
+
+  -- use {
+  --   "folke/tokyonight.nvim",
+  --   config = function()
+  --     require("config/tokyonight")
+  --   end,
+  -- }
 
   use {
     "nvim-lualine/lualine.nvim",
@@ -151,13 +158,6 @@ return packer.startup(function(use)
   }
 
   use {
-    "folke/which-key.nvim",
-    config = function()
-      require("config/which-key")
-    end,
-  }
-
-  use {
     "phaazon/hop.nvim",
     branch = "v1",
     config = function()
@@ -166,6 +166,20 @@ return packer.startup(function(use)
   }
 
   use "famiu/bufdelete.nvim"
+
+  use {
+    "akinsho/toggleterm.nvim",
+    config = function()
+      require("config/toggleterm")
+    end,
+  }
+
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("config/which-key")
+    end,
+  }
 
   if packer_bootstrap then
     require("packer").sync()

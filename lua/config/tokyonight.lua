@@ -6,7 +6,11 @@ if not status_ok then
   return
 end
 
+vim.g.tokyonight_colors = {
+  hint = "orange",
+  error = "#ff0000",
+}
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_italic_functions = true
 
-vim.api.nvim_exec([[colorscheme tokyonight]], false)
+vim.cmd("colorscheme tokyonight")

@@ -6,8 +6,8 @@ if not status_ok then
   return
 end
 
-local cmd = function(cmdline)
-  return "<cmd>" .. cmdline .. "<CR>"
+local cmd = function(args)
+  return "<Cmd>" .. args .. "<CR>"
 end
 
 which_key.setup {}
@@ -28,16 +28,16 @@ which_key.register({
       "Kill buffer",
     },
     l = {
+      cmd("bprevious"),
+      "Previous buffer",
+    },
+    L = {
       cmd("Telescope buffers"),
       "List open buffers",
     },
     n = {
       cmd("bnext"),
       "Next buffer",
-    },
-    p = {
-      cmd("bprevious"),
-      "Previous buffer",
     },
   },
   c = {
@@ -98,14 +98,6 @@ which_key.register({
   },
   f = {
     name = "file",
-    f = {
-      cmd("Telescope find_files"),
-      "Find file",
-    },
-    r = {
-      cmd("Telescope oldfiles"),
-      "Recent files",
-    },
     s = {
       cmd("w"),
       "Save file",
@@ -141,12 +133,39 @@ which_key.register({
   s = {
     name = "search",
     b = {
-      cmd("Telescope current_buffer_fuzzy_find"),
-      "Search buffer",
+      cmd("lua require('telescope.builtin').buffers()"),
+      "Buffers",
     },
-    p = {
-      cmd("Telescope grep_string"),
-      "Search project",
+    c = {
+      cmd("lua require('telescope.builtin').command_history()"),
+      "Command history",
+    },
+    f = {
+      cmd("lua require('telescope.builtin').find_files()"),
+      "File",
+    },
+    g = {
+      cmd("lua require('telescope.builtin').live_grep()"),
+      "Grep for string in project",
+    },
+    h = {
+      cmd("lua require('telescope.builtin').help_tags()"),
+      "Function help",
+    },
+    r = {
+      cmd("lua require('telescope.builtin').oldfiles()"),
+      "Recent files",
+    },
+  },
+  t = {
+    name = "toggle",
+    d = {
+      cmd("NvimTreeToggle"),
+      "Directory tree",
+    },
+    g = {
+      cmd("lua _lazygit_toggle()"),
+      "Lazy git",
     },
   },
   w = {

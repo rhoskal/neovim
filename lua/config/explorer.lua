@@ -21,5 +21,3 @@ explorer.setup {
     "alpha",
   },
 }
-
-keymap("n", "<leader>fd", ":NvimTreeToggle<CR>")

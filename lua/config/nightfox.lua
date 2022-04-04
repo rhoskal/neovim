@@ -6,4 +6,14 @@ if not status_ok then
   return
 end
 
-nightfox.load("nordfox")
+nightfox.setup {
+  options = {
+    styles = {
+      comments = "italic",
+      keywords = "bold",
+      types = "italic,bold",
+    },
+  },
+}
+
+vim.cmd("colorscheme nordfox")

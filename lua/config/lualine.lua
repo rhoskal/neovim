@@ -12,12 +12,13 @@ end
 
 lualine.setup {
   options = {
-    theme = "tokyonight",
+    theme = "auto",
     component_separators = "|",
     section_separators = {
       left = "",
       right = "",
     },
+    disabled_filetypes = { "packer" },
   },
   sections = {
     lualine_a = {
@@ -80,5 +81,5 @@ lualine.setup {
     lualine_z = { "progress" },
   },
   tabline = {},
-  extensions = {},
+  extensions = { "nvim-tree" },
 }
