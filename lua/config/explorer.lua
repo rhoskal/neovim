@@ -6,7 +6,6 @@ if not status_ok then
   return
 end
 
-vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.vim_tree_special_files = {
   "README.md",
@@ -20,4 +19,12 @@ explorer.setup {
   ignore_ft_on_setup = {
     "alpha",
   },
+  renderer = {
+    indent_markers = {
+      enable = true,
+    },
+  },
+  view = {
+    width = 40,
+  }
 }

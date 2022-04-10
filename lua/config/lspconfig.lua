@@ -67,6 +67,11 @@ nvim_lsp.dockerls.setup {
 nvim_lsp.elixirls.setup {
   capabilities = capabilities,
   cmd = { "/Users/hansy/.elixir-ls/language_server.sh" },
+  filetypes = {
+    "elixir",
+    "eelixir",
+    "heex",
+  },
   flags = flags,
   handlers = handlers,
   on_attach = on_attach,

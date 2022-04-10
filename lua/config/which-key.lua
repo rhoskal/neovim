@@ -98,6 +98,10 @@ which_key.register({
   },
   f = {
     name = "file",
+    a = {
+      "<C-^><CR>",
+      "Alternate file",
+    },
     s = {
       cmd("w"),
       "Save file",
