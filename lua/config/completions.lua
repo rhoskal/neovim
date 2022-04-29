@@ -44,9 +44,6 @@ local has_words_before = function()
 end
 
 cmp.setup({
-  documentation = {
-    border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"},
-  },
   formatting = {
     format = function(entry, vim_item)
       vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind] or "", vim_item.kind)
@@ -101,7 +98,12 @@ cmp.setup({
     { name = "luasnip" },
   }, {
     { name = "path" },
-  })
+  }),
+  window = {
+    documentation = {
+      border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"},
+    },
+  }
 })
 
 -- a better completion experience (from docs)

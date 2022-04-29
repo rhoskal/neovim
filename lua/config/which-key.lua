@@ -88,11 +88,11 @@ which_key.register({
       "List errors",
     },
     ["["] = {
-      cmd("lua vim.lsp.diagnostic.goto_prev()"),
+      cmd("lua vim.diagnostic.goto_prev()"),
       "Goto previous diagnostic",
     },
     ["]"] = {
-      cmd("lua vim.lsp.diagnostic.goto_next()"),
+      cmd("lua vim.diagnostic.goto_next()"),
       "Goto next diagnostic",
     },
   },
