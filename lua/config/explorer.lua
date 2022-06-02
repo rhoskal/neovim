@@ -6,11 +6,6 @@ if not status_ok then
   return
 end
 
-vim.g.nvim_tree_highlight_opened_files = 1
-vim.g.vim_tree_special_files = {
-  "README.md",
-  "Makefile",
-}
 
 explorer.setup {
   filters = {
@@ -20,8 +15,13 @@ explorer.setup {
     "alpha",
   },
   renderer = {
+    highlight_opened_files = "icon",
     indent_markers = {
       enable = true,
+    },
+    special_files = {
+      "README.md",
+      "Makefile",
     },
   },
   view = {

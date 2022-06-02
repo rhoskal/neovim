@@ -23,17 +23,21 @@ which_key.register({
       cmd("bdelete"),
       "Kill buffer",
     },
+    i = {
+      cmd("Telescope buffers"),
+      "Interactive buffer list",
+    },
     l = {
       cmd("bprevious"),
       "Previous buffer",
     },
-    L = {
-      cmd("Telescope buffers"),
-      "List open buffers",
-    },
     n = {
       cmd("bnext"),
       "Next buffer",
+    },
+    p = {
+      cmd("bprevious"),
+      "Previous buffer",
     },
   },
   c = {

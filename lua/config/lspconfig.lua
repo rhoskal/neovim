@@ -91,6 +91,11 @@ nvim_lsp.hls.setup {
   flags = flags,
   handlers = handlers,
   on_attach = on_attach,
+  settings = {
+    haskell = {
+      formattingProvider = "brittany",
+    },
+  },
 }
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
