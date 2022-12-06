@@ -9,7 +9,7 @@ if not (status_lsp_ok or status_cmp_ok) then
 end
 
 -- Set up completion using nvim_cmp with LSP source
-local capabilities = cmp_nvim_lsp.update_capabilities(
+local capabilities = cmp_nvim_lsp.default_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 capabilities.textDocument.completion.completionItem.deprecatedSupport = true
@@ -28,8 +28,8 @@ local on_attach = function(client, bufnr)
 
   -- Avoid formatting conflicts with null-ls
   if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
   end
 end
 
@@ -142,6 +142,13 @@ nvim_lsp.jsonls.setup {
       },
     },
   },
+}
+
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#purescriptls
+nvim_lsp.purescriptls.setup {
+  flags = flags,
+  handlers = handlers,
+  on_attach = on_attach,
 }
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua

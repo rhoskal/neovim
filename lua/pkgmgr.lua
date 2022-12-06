@@ -77,6 +77,7 @@ return packer.startup(function(use)
   --     require("config/tokyonight")
   --   end,
   -- }
+  -- use "navarasu/onedark.nvim"
 
   use {
     "nvim-lualine/lualine.nvim",
@@ -180,6 +181,8 @@ return packer.startup(function(use)
       require("config/which-key")
     end,
   }
+
+  use "purescript-contrib/purescript-vim"
 
   if packer_bootstrap then
     require("packer").sync()
