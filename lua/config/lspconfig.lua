@@ -93,7 +93,7 @@ nvim_lsp.hls.setup {
   on_attach = on_attach,
   settings = {
     haskell = {
-      formattingProvider = "brittany",
+      formattingProvider = "ormolu",
     },
   },
 }
