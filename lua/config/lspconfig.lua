@@ -144,15 +144,8 @@ nvim_lsp.jsonls.setup {
   },
 }
 
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#purescriptls
-nvim_lsp.purescriptls.setup {
-  flags = flags,
-  handlers = handlers,
-  on_attach = on_attach,
-}
-
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
-nvim_lsp.sumneko_lua.setup {
+nvim_lsp.lua_ls.setup {
   capabilities = capabilities,
   flags = flags,
   handlers = handlers,
@@ -193,6 +186,13 @@ nvim_lsp.sumneko_lua.setup {
       telemetry = { enable = false }
     },
   },
+}
+
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#purescriptls
+nvim_lsp.purescriptls.setup {
+  flags = flags,
+  handlers = handlers,
+  on_attach = on_attach,
 }
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tailwindcss
